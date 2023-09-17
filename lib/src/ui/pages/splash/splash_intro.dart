@@ -17,7 +17,7 @@ class _SplashIntroState extends State<SplashIntro> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Navigator.pushReplacementNamed(context, "/splash-page");
+        Navigator.pushReplacementNamed(context, "/splash-lang");
       },
     );
   }

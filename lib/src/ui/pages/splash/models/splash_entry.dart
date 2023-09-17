@@ -1,13 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:movie_plus_app/src/common/constants/app_images.dart';
+import 'package:movie_plus_app/src/ui/utils/functions.dart';
 
 class SplashEntry {
-  static const entries = {
-    AppImages.img1: "All your favourite MARVEL Movies & Series at one place",
-    AppImages.img2: "Watch Online or Download Offline",
-    AppImages.img3:
-        "Create profiles for different members & get personalised recommendations",
-    AppImages.img4: "Plans according to your needs at affordable prices",
-    AppImages.img5: "Let’s Get Started !!!",
-    AppImages.img6: "",
-  };
+  static Map<String, String> entries(BuildContext context) => {
+        AppImages.img1: translate(context).img1Text,
+        AppImages.img2: translate(context).img2Text,
+        AppImages.img3: translate(context).img3Text,
+        AppImages.img4: translate(context).img4Text,
+        AppImages.img5: translate(context).img5Text,
+        AppImages.img6: "",
+      };
+
+  static const length = 6;
 }
