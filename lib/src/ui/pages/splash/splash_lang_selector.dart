@@ -28,13 +28,19 @@ class _SplashLangSelectorState extends State<SplashLangSelector> {
                     CustomSplashButton(
                       onPressed: () => value.changeLang("uz"),
                       text: "O'zbekcha",
-                      isOutlined: value.isEng,
+                      isOutlined: value.current.languageCode != "uz",
                     ),
                     const SizedBox(height: 15),
                     CustomSplashButton(
                       onPressed: () => value.changeLang("en"),
                       text: "English",
-                      isOutlined: !value.isEng,
+                      isOutlined: value.current.languageCode != "en",
+                    ),
+                    const SizedBox(height: 15),
+                    CustomSplashButton(
+                      onPressed: () => value.changeLang("ru"),
+                      text: "Русский",
+                      isOutlined: value.current.languageCode != "ru",
                     ),
                     const SizedBox(height: 30),
                     child ?? const SizedBox.shrink(),

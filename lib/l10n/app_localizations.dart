@@ -140,7 +140,7 @@ abstract class AppLocalizations {
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
-  /// **'Login'**
+  /// **'Log in'**
   String get login;
 }
 

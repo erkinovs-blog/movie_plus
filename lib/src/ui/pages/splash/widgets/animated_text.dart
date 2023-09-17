@@ -34,7 +34,7 @@ class _AnimatedTextState extends State<AnimatedText> {
             style: const TextStyle(
               color: AppColors.white,
               fontSize: 20,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.bold,
             ),
           ),
         );

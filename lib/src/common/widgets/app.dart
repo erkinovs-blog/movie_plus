@@ -26,6 +26,7 @@ class App extends StatelessWidget {
                   theme: ThemeData(
                     useMaterial3: true,
                     scaffoldBackgroundColor: AppColors.scaffoldBG,
+                    fontFamily: "Inter",
                   ),
                   localizationsDelegates:
                       AppLocalizations.localizationsDelegates,

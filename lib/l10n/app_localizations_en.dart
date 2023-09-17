@@ -26,5 +26,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get singUp => 'Sign Up';
 
   @override
-  String get login => 'Login';
+  String get login => 'Log in';
 }

@@ -21,5 +21,18 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "continueText": MessageLookupByLibrary.simpleMessage("Продолжить"),
+        "img1Text": MessageLookupByLibrary.simpleMessage(
+            "Все ваши любимые фильмы и сериалы MARVEL в одном месте"),
+        "img2Text": MessageLookupByLibrary.simpleMessage(
+            "Смотрите онлайн или скачивайте оффлайн"),
+        "img3Text": MessageLookupByLibrary.simpleMessage(
+            "Создавайте профили для разных участников и получайте персональные рекомендации"),
+        "img4Text": MessageLookupByLibrary.simpleMessage(
+            "Планы в соответствии с вашими потребностями по доступным ценам"),
+        "img5Text": MessageLookupByLibrary.simpleMessage("Давайте начнем !!!"),
+        "login": MessageLookupByLibrary.simpleMessage("Войти"),
+        "singUp": MessageLookupByLibrary.simpleMessage("Регистрация")
+      };
 }

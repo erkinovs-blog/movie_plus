@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Plans according to your needs at affordable prices"),
         "img5Text":
             MessageLookupByLibrary.simpleMessage("Let’s Get Started !!!"),
-        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login": MessageLookupByLibrary.simpleMessage("Log in"),
         "singUp": MessageLookupByLibrary.simpleMessage("Sign Up")
       };
 }

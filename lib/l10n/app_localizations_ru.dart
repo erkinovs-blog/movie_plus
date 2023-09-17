@@ -5,26 +5,26 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get continueText => 'Continue';
+  String get continueText => 'Продолжить';
 
   @override
-  String get img1Text => 'All your favourite MARVEL Movies & Series at one place';
+  String get img1Text => 'Все ваши любимые фильмы и сериалы MARVEL в одном месте';
 
   @override
-  String get img2Text => 'Watch Online or Download Offline';
+  String get img2Text => 'Смотрите онлайн или скачивайте оффлайн';
 
   @override
-  String get img3Text => 'Create profiles for different members & get personalised recommendations';
+  String get img3Text => 'Создавайте профили для разных участников и получайте персональные рекомендации';
 
   @override
-  String get img4Text => 'Plans according to your needs at affordable prices';
+  String get img4Text => 'Планы в соответствии с вашими потребностями по доступным ценам';
 
   @override
-  String get img5Text => 'Let’s Get Started !!!';
+  String get img5Text => 'Давайте начнем !!!';
 
   @override
-  String get singUp => 'Sign Up';
+  String get singUp => 'Регистрация';
 
   @override
-  String get login => 'Login';
+  String get login => 'Войти';
 }
