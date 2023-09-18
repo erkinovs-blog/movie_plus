@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "continueText": MessageLookupByLibrary.simpleMessage("Davom etish"),
+        "email": MessageLookupByLibrary.simpleMessage("Elektron pochta"),
         "img1Text": MessageLookupByLibrary.simpleMessage(
             "Barcha sevimli MARVEL filmlari va seriallari bir joyda"),
         "img2Text": MessageLookupByLibrary.simpleMessage(
@@ -33,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ehtiyojlaringizga muvofiq arzon narxlardagi tariflar"),
         "img5Text": MessageLookupByLibrary.simpleMessage("Qani boshladik !!!"),
         "login": MessageLookupByLibrary.simpleMessage("Tizimga kirish"),
+        "password": MessageLookupByLibrary.simpleMessage("Parol"),
         "singUp": MessageLookupByLibrary.simpleMessage("Ro\'yhatdan o\'tish")
       };
 }

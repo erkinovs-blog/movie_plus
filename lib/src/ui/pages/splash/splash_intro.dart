@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_plus_app/src/common/constants/app_icons.dart';
+import 'package:movie_plus_app/src/common/routes/app_routes.dart';
 import 'package:movie_plus_app/src/ui/utils/screen_size_resolver.dart';
 
 class SplashIntro extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SplashIntroState extends State<SplashIntro> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        Navigator.pushReplacementNamed(context, "/splash-lang");
+        Navigator.pushReplacementNamed(context, AppRoutes.splashLang);
       },
     );
   }

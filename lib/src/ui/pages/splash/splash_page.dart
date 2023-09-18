@@ -75,10 +75,7 @@ class _SplashPageState extends State<SplashPage> {
                       itemCount: SplashEntry.length,
                       itemBuilder: (context, index) {
                         String image =
-                        SplashEntry
-                            .entries(context)
-                            .keys
-                            .elementAt(index);
+                            SplashEntry.entries(context).keys.elementAt(index);
                         return Image.asset(
                           image,
                           fit: BoxFit.cover,
@@ -106,7 +103,7 @@ class _SplashPageState extends State<SplashPage> {
                 top: AppScreen.height(context) * 0.65,
                 width: 270,
                 child: SizedBox(
-                  height: 110,
+                  height: 115,
                   child: Center(
                     child: AnimatedText(controller: controller),
                   ),

@@ -27,4 +27,10 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get login => 'Tizimga kirish';
+
+  @override
+  String get email => 'Elektron pochta';
+
+  @override
+  String get password => 'Parol';
 }

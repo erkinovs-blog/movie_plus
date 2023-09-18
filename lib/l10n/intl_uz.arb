@@ -7,5 +7,7 @@
   "img4Text": "Ehtiyojlaringizga muvofiq arzon narxlardagi tariflar",
   "img5Text": "Qani boshladik !!!",
   "singUp": "Ro'yhatdan o'tish",
-  "login": "Tizimga kirish"
+  "login": "Tizimga kirish",
+  "email": "Elektron pochta",
+  "password": "Parol"
 }

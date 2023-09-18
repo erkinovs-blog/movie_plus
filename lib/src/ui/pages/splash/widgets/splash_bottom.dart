@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_plus_app/src/common/routes/app_routes.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/controllers/controller_listener.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/models/splash_entry.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
@@ -32,13 +33,15 @@ class _SplashBottomState extends State<SplashBottom> {
               ? Column(
                   children: [
                     const Spacer(flex: 1),
-                    CustomSplashButton(
-                      onPressed: () {},
+                    CustomElevatedButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.signUp),
                       text: translate(context).singUp,
                     ),
                     const Spacer(flex: 1),
-                    CustomSplashButton(
-                      onPressed: () {},
+                    CustomElevatedButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, AppRoutes.login),
                       text: translate(context).login,
                       isOutlined: true,
                     ),
@@ -47,7 +50,7 @@ class _SplashBottomState extends State<SplashBottom> {
                 )
               : Align(
                   alignment: const Alignment(0, 0.5),
-                  child: CustomSplashButton(
+                  child: CustomElevatedButton(
                     onPressed: widget.onContinuePressed,
                     text: translate(context).continueText,
                   ),

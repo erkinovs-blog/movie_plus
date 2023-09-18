@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
 import 'package:movie_plus_app/src/common/models/lang_model.dart';
+import 'package:movie_plus_app/src/common/routes/app_routes.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
 import 'package:movie_plus_app/src/ui/utils/screen_layout_resolver.dart';
 import 'package:provider/provider.dart';
@@ -25,19 +26,19 @@ class _SplashLangSelectorState extends State<SplashLangSelector> {
                 return Column(
                   children: [
                     const Spacer(flex: 3),
-                    CustomSplashButton(
+                    CustomElevatedButton(
                       onPressed: () => value.changeLang("uz"),
                       text: "O'zbekcha",
                       isOutlined: value.current.languageCode != "uz",
                     ),
                     const SizedBox(height: 15),
-                    CustomSplashButton(
+                    CustomElevatedButton(
                       onPressed: () => value.changeLang("en"),
                       text: "English",
                       isOutlined: value.current.languageCode != "en",
                     ),
                     const SizedBox(height: 15),
-                    CustomSplashButton(
+                    CustomElevatedButton(
                       onPressed: () => value.changeLang("ru"),
                       text: "Русский",
                       isOutlined: value.current.languageCode != "ru",
@@ -49,14 +50,18 @@ class _SplashLangSelectorState extends State<SplashLangSelector> {
                 );
               },
               child: FloatingActionButton(
-                onPressed: () => Navigator.pushNamed(context, "/splash-page"),
+                onPressed: () => Navigator.pushNamed(context, AppRoutes.splash),
                 backgroundColor: AppColors.red,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
                 ),
-                child: const Icon(Icons.chevron_right),
+                child: const Icon(
+                  Icons.chevron_right,
+                  color: AppColors.scaffoldBG,
+                  size: 35,
+                ),
               ),
             ),
           ),

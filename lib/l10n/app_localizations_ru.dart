@@ -27,4 +27,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get login => 'Войти';
+
+  @override
+  String get email => 'Электронная почта';
+
+  @override
+  String get password => 'Пароль';
 }

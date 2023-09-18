@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
 
-class CustomSplashButton extends StatelessWidget {
-  const CustomSplashButton({
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({
     required this.onPressed,
     required this.text,
     this.isOutlined = false,
@@ -23,21 +23,18 @@ class CustomSplashButton extends StatelessWidget {
         minimumSize: const Size.fromHeight(50),
         backgroundColor: isOutlined ? AppColors.scaffoldBG : AppColors.red,
         surfaceTintColor: AppColors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
-          side: isOutlined
-              ? const BorderSide(
-                  color: AppColors.red,
-                  width: 3,
-                )
-              : BorderSide.none,
-        ),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero,
+            side: BorderSide(
+              color: AppColors.red,
+              width: 3,
+            )),
       ),
       child: Text(
         text,
         style: const TextStyle(
           color: AppColors.white,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w600,
           fontSize: 18,
         ),
       ),
