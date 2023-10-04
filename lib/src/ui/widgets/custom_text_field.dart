@@ -45,19 +45,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: BorderRadius.zero,
           borderSide: BorderSide.none,
         ),
-        suffix: widget.isPassword
-            ? GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isObscure = !isObscure;
-                  });
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                onPressed: () {
+                  isObscure = !isObscure;
+                  setState(() {});
                 },
-                child: const Text(
-                  "show",
-                  style: TextStyle(
-                    color: AppColors.black,
-                  ),
-                ),
+                icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
               )
             : null,
         errorStyle: const TextStyle(

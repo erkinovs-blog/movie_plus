@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_plus_app/src/common/routes/app_routes.dart';
-import 'package:movie_plus_app/src/ui/pages/splash/controllers/controller_listener.dart';
+import 'package:movie_plus_app/src/ui/pages/splash/controllers/page_bloc/page_bloc.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/models/splash_entry.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
 import 'package:movie_plus_app/src/ui/utils/functions.dart';
-import 'package:provider/provider.dart';
 
 class SplashBottom extends StatefulWidget {
   const SplashBottom({
-    required this.onContinuePressed,
-    required this.controller,
     super.key,
   });
-
-  final VoidCallback onContinuePressed;
-  final PageController controller;
 
   @override
   State<SplashBottom> createState() => _SplashBottomState();
@@ -23,25 +18,29 @@ class SplashBottom extends StatefulWidget {
 class _SplashBottomState extends State<SplashBottom> {
   @override
   Widget build(BuildContext context) {
-    return Selector<ControllerListener, int>(
-      selector: (_, ControllerListener listener) => listener.selected,
-      shouldRebuild: (previous, next) => next >= SplashEntry.length - 2,
-      builder: (context, value, child) {
+    return BlocBuilder<PageBloc, PageState>(
+      buildWhen: (previous, current) =>
+          current.currentPage >= SplashEntry.length - 2,
+      builder: (context, state) {
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
-          child: value == SplashEntry.length - 1
+          child: state.currentPage == SplashEntry.length - 1
               ? Column(
                   children: [
                     const Spacer(flex: 1),
                     CustomElevatedButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, AppRoutes.signUp),
+                      onPressed: () => Navigator.pushNamed(
+                        context,
+                        AppRoutes.signUp,
+                      ),
                       text: translate(context).singUp,
                     ),
                     const Spacer(flex: 1),
                     CustomElevatedButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, AppRoutes.login),
+                      onPressed: () => Navigator.pushNamed(
+                        context,
+                        AppRoutes.login,
+                      ),
                       text: translate(context).login,
                       isOutlined: true,
                     ),
@@ -51,7 +50,7 @@ class _SplashBottomState extends State<SplashBottom> {
               : Align(
                   alignment: const Alignment(0, 0.5),
                   child: CustomElevatedButton(
-                    onPressed: widget.onContinuePressed,
+                    onPressed: context.read<PageBloc>().onContinuePressed,
                     text: translate(context).continueText,
                   ),
                 ),

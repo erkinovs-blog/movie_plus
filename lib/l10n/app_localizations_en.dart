@@ -33,4 +33,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password => 'Password';
+
+  @override
+  String get nickname => 'Nickname';
+
+  @override
+  String get passwordLength => 'Password is too short, it must be at least 8 characters';
+
+  @override
+  String get passwordSpace => 'Password shouldn\'t have space';
+
+  @override
+  String get passwordNumber => 'Password must have at least one number';
+
+  @override
+  String get passwordLetter => 'Password must have at least one letter';
+
+  @override
+  String get passwordCapitalLetter => 'Password must have at least one Capital letter';
+
+  @override
+  String get invalidEmail => 'Invalid email address!';
+
+  @override
+  String get alreadyRegister => 'You are already Registered';
+
+  @override
+  String get invalidName => 'Invalid name!';
 }

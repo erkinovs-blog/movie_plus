@@ -149,6 +149,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Nickname`
+  String get nickname {
+    return Intl.message(
+      'Nickname',
+      name: 'nickname',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is too short, it must be at least 8 characters`
+  String get passwordLength {
+    return Intl.message(
+      'Password is too short, it must be at least 8 characters',
+      name: 'passwordLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password shouldn't have space`
+  String get passwordSpace {
+    return Intl.message(
+      'Password shouldn\'t have space',
+      name: 'passwordSpace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must have at least one number`
+  String get passwordNumber {
+    return Intl.message(
+      'Password must have at least one number',
+      name: 'passwordNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must have at least one letter`
+  String get passwordLetter {
+    return Intl.message(
+      'Password must have at least one letter',
+      name: 'passwordLetter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must have at least one Capital letter`
+  String get passwordCapitalLetter {
+    return Intl.message(
+      'Password must have at least one Capital letter',
+      name: 'passwordCapitalLetter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email address!`
+  String get invalidEmail {
+    return Intl.message(
+      'Invalid email address!',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are already Registered`
+  String get alreadyRegister {
+    return Intl.message(
+      'You are already Registered',
+      name: 'alreadyRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid name!`
+  String get invalidName {
+    return Intl.message(
+      'Invalid name!',
+      name: 'invalidName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

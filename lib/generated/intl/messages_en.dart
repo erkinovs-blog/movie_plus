@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyRegister":
+            MessageLookupByLibrary.simpleMessage("You are already Registered"),
         "continueText": MessageLookupByLibrary.simpleMessage("Continue"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "img1Text": MessageLookupByLibrary.simpleMessage(
@@ -34,8 +36,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "Plans according to your needs at affordable prices"),
         "img5Text":
             MessageLookupByLibrary.simpleMessage("Let’s Get Started !!!"),
+        "invalidEmail":
+            MessageLookupByLibrary.simpleMessage("Invalid email address!"),
+        "invalidName": MessageLookupByLibrary.simpleMessage("Invalid name!"),
         "login": MessageLookupByLibrary.simpleMessage("Log in"),
+        "nickname": MessageLookupByLibrary.simpleMessage("Nickname"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordCapitalLetter": MessageLookupByLibrary.simpleMessage(
+            "Password must have at least one Capital letter"),
+        "passwordLength": MessageLookupByLibrary.simpleMessage(
+            "Password is too short, it must be at least 8 characters"),
+        "passwordLetter": MessageLookupByLibrary.simpleMessage(
+            "Password must have at least one letter"),
+        "passwordNumber": MessageLookupByLibrary.simpleMessage(
+            "Password must have at least one number"),
+        "passwordSpace": MessageLookupByLibrary.simpleMessage(
+            "Password shouldn\'t have space"),
         "singUp": MessageLookupByLibrary.simpleMessage("Sign Up")
       };
 }

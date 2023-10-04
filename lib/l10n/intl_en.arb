@@ -9,5 +9,14 @@
   "singUp": "Sign Up",
   "login": "Log in",
   "email": "Email",
-  "password": "Password"
+  "password": "Password",
+  "nickname": "Nickname",
+  "passwordLength": "Password is too short, it must be at least 8 characters",
+  "passwordSpace": "Password shouldn't have space",
+  "passwordNumber": "Password must have at least one number",
+  "passwordLetter": "Password must have at least one letter",
+  "passwordCapitalLetter": "Password must have at least one Capital letter",
+  "invalidEmail": "Invalid email address!",
+  "alreadyRegister": "You are already Registered",
+  "invalidName": "Invalid name!"
 }

@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
-import 'package:movie_plus_app/src/ui/pages/splash/controllers/controller_listener.dart';
+import 'package:movie_plus_app/src/ui/pages/splash/controllers/page_bloc/page_bloc.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/models/splash_entry.dart';
-import 'package:provider/provider.dart';
 
 class AnimatedText extends StatefulWidget {
-  const AnimatedText({
-    required this.controller,
-    super.key,
-  });
-
-  final PageController controller;
+  const AnimatedText({super.key});
 
   @override
   State<AnimatedText> createState() => _AnimatedTextState();
@@ -19,11 +14,10 @@ class AnimatedText extends StatefulWidget {
 class _AnimatedTextState extends State<AnimatedText> {
   @override
   Widget build(BuildContext context) {
-    return Selector<ControllerListener, int>(
-      selector: (_, ControllerListener listener) => listener.selected,
-      builder: (context, value, child) {
+    return BlocBuilder<PageBloc, PageState>(
+      builder: (context, state) {
         String selectedText =
-            SplashEntry.entries(context).values.elementAt(value);
+            SplashEntry.entries(context).values.elementAt(state.currentPage);
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
           child: Text(

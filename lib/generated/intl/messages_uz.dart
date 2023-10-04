@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ehtiyojlaringizga muvofiq arzon narxlardagi tariflar"),
         "img5Text": MessageLookupByLibrary.simpleMessage("Qani boshladik !!!"),
         "login": MessageLookupByLibrary.simpleMessage("Tizimga kirish"),
+        "nickname": MessageLookupByLibrary.simpleMessage("Foydalanuvchi nomi"),
         "password": MessageLookupByLibrary.simpleMessage("Parol"),
         "singUp": MessageLookupByLibrary.simpleMessage("Ro\'yhatdan o\'tish")
       };

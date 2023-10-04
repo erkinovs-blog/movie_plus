@@ -154,6 +154,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
+
+  /// No description provided for @nickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Nickname'**
+  String get nickname;
+
+  /// No description provided for @passwordLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is too short, it must be at least 8 characters'**
+  String get passwordLength;
+
+  /// No description provided for @passwordSpace.
+  ///
+  /// In en, this message translates to:
+  /// **'Password shouldn\'t have space'**
+  String get passwordSpace;
+
+  /// No description provided for @passwordNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must have at least one number'**
+  String get passwordNumber;
+
+  /// No description provided for @passwordLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must have at least one letter'**
+  String get passwordLetter;
+
+  /// No description provided for @passwordCapitalLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must have at least one Capital letter'**
+  String get passwordCapitalLetter;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email address!'**
+  String get invalidEmail;
+
+  /// No description provided for @alreadyRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'You are already Registered'**
+  String get alreadyRegister;
+
+  /// No description provided for @invalidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid name!'**
+  String get invalidName;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

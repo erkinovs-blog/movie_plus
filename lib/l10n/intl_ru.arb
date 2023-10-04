@@ -9,5 +9,6 @@
   "singUp": "Регистрация",
   "login": "Войти",
   "email": "Электронная почта",
-  "password": "Пароль"
+  "password": "Пароль",
+  "nickname": "Nickname"
 }

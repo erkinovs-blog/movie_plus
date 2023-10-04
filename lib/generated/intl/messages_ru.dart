@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Планы в соответствии с вашими потребностями по доступным ценам"),
         "img5Text": MessageLookupByLibrary.simpleMessage("Давайте начнем !!!"),
         "login": MessageLookupByLibrary.simpleMessage("Войти"),
+        "nickname": MessageLookupByLibrary.simpleMessage("Nickname"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "singUp": MessageLookupByLibrary.simpleMessage("Регистрация")
       };

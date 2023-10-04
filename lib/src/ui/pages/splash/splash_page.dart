@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
-import 'package:movie_plus_app/src/ui/pages/splash/controllers/controller_listener.dart';
+import 'package:movie_plus_app/src/ui/pages/splash/controllers/page_bloc/page_bloc.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/models/splash_entry.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/animated_text.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_shader.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/splash_bottom.dart';
 import 'package:movie_plus_app/src/ui/utils/screen_layout_resolver.dart';
 import 'package:movie_plus_app/src/ui/utils/screen_size_resolver.dart';
-import 'package:provider/provider.dart';
+import 'package:movie_plus_app/src/ui/widgets/app_back_btn.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SplashPage extends StatefulWidget {
@@ -18,111 +19,80 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  late final PageController controller;
-  late ControllerListener controllerListener;
-
-  void onContinuePressed() {
-    controller.nextPage(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  @override
-  void initState() {
-    controller = PageController();
-    controllerListener = ControllerListener(controller: controller);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return ScreenLayoutResolver(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          forceMaterialTransparency: true,
-          leading: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: BackButton(
-              style: IconButton.styleFrom(
-                backgroundColor: AppColors.scaffoldBG.withOpacity(0.8),
-              ),
-              color: AppColors.white,
+      child: BlocProvider(
+        create: (context) => PageBloc(),
+        child: Builder(builder: (context) {
+          return Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: AppBar(
+              forceMaterialTransparency: true,
+              leading: const AppBackBtn(),
             ),
-          ),
-        ),
-        body: ChangeNotifierProvider<ControllerListener>.value(
-          value: controllerListener,
-          child: Stack(
-            fit: StackFit.expand,
-            alignment: Alignment.center,
-            children: [
-              Positioned(
-                top: 0,
-                child: SizedBox(
-                  height: AppScreen.height(context) * 0.7,
-                  width: AppScreen.width(context),
-                  child: CustomShader(
-                    child: PageView.builder(
-                      controller: controller,
-                      itemCount: SplashEntry.length,
-                      itemBuilder: (context, index) {
-                        String image =
-                            SplashEntry.entries(context).keys.elementAt(index);
-                        return Image.asset(
-                          image,
-                          fit: BoxFit.cover,
-                        );
-                      },
+            body: Stack(
+              fit: StackFit.expand,
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  top: 0,
+                  child: SizedBox(
+                    height: AppScreen.height(context) * 0.7,
+                    width: AppScreen.width(context),
+                    child: CustomShader(
+                      child: PageView.builder(
+                        controller: context.read<PageBloc>().controller,
+                        itemCount: SplashEntry.length,
+                        itemBuilder: (context, index) {
+                          String image = SplashEntry.entries(context)
+                              .keys
+                              .elementAt(index);
+                          return Image.asset(
+                            image,
+                            fit: BoxFit.cover,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: AppScreen.height(context) * 0.55,
-                child: SmoothPageIndicator(
-                  controller: controller,
-                  count: SplashEntry.length,
-                  effect: const WormEffect(
-                    activeDotColor: AppColors.red,
-                    dotColor: AppColors.white,
-                    spacing: 10,
-                    dotWidth: 10,
-                    dotHeight: 10,
+                Positioned(
+                  top: AppScreen.height(context) * 0.55,
+                  child: SmoothPageIndicator(
+                    controller: context.read<PageBloc>().controller,
+                    count: SplashEntry.length,
+                    effect: const WormEffect(
+                      activeDotColor: AppColors.red,
+                      dotColor: AppColors.white,
+                      spacing: 10,
+                      dotWidth: 10,
+                      dotHeight: 10,
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: AppScreen.height(context) * 0.65,
-                width: 270,
-                child: SizedBox(
-                  height: 115,
-                  child: Center(
-                    child: AnimatedText(controller: controller),
+                Positioned(
+                  top: AppScreen.height(context) * 0.65,
+                  width: 270,
+                  child: const SizedBox(
+                    height: 115,
+                    child: Center(
+                      child: AnimatedText(),
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                height: AppScreen.height(context) * 0.35,
-                width: AppScreen.width(context) * 0.8,
-                bottom: 0,
-                child: SizedBox.expand(
-                  child: SplashBottom(
-                    controller: controller,
-                    onContinuePressed: onContinuePressed,
+                Positioned(
+                  height: AppScreen.height(context) * 0.35,
+                  width: AppScreen.width(context) * 0.8,
+                  bottom: 0,
+                  child: const SizedBox.expand(
+                    child: SplashBottom(),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ),
+              ],
+            ),
+          );
+        }),
       ),
     );
   }

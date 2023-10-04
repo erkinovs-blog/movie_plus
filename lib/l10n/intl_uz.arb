@@ -9,5 +9,6 @@
   "singUp": "Ro'yhatdan o'tish",
   "login": "Tizimga kirish",
   "email": "Elektron pochta",
-  "password": "Parol"
+  "password": "Parol",
+  "nickname": "Foydalanuvchi nomi"
 }
