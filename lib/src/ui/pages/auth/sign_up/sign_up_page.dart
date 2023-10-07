@@ -89,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (mounted) {
                         Navigator.pushNamed(
                           context,
-                          AppRoutes.forgot,
+                          AppRoutes.splash,
                         );
                       }
                     }
