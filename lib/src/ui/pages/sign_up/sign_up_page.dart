@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
 import 'package:movie_plus_app/src/common/constants/app_icons.dart';
+import 'package:movie_plus_app/src/common/services/email_service.dart';
 import 'package:movie_plus_app/src/common/utils/validator/text_field_validator.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
 import 'package:movie_plus_app/src/ui/utils/functions.dart';
@@ -19,12 +20,14 @@ class _SignUpPageState extends State<SignUpPage> {
   late TextEditingController nicknameController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  late EmailService service;
 
   @override
   void initState() {
     nicknameController = TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    service = EmailService();
     super.initState();
   }
 
@@ -33,6 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
     nicknameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    service.dispose();
     super.dispose();
   }
 
@@ -77,9 +81,18 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const Spacer(),
               CustomElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState?.validate() ?? true) {
+                    print(await service.sendOTP(toEmail: emailController.text));
                   } else {}
+
+                  /// "vzdxczwlcivwxmou"
+                  ///
+
+                  // print(await sender.sendOtp(
+                  //     "murodjonerkinov2005@gmail.com", 12332));
+
+                  // print(await sender.checkServer());
                 },
                 text: "Sign up",
                 isOutlined: true,
@@ -87,7 +100,9 @@ class _SignUpPageState extends State<SignUpPage> {
               Align(
                 alignment: Alignment.topRight,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    print(service.verify(otp: passwordController.text));
+                  },
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 12),
                     child: Text(

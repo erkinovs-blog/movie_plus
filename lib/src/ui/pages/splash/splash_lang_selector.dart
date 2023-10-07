@@ -43,8 +43,10 @@ class _SplashLangSelectorState extends State<SplashLangSelector> {
                 ),
                 const SizedBox(height: 30),
                 FloatingActionButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, AppRoutes.splash),
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    AppRoutes.splash,
+                  ),
                   backgroundColor: AppColors.red,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(

@@ -7,19 +7,11 @@ part 'lang_state.dart';
 
 class LangBloc extends Bloc<LangEvent, LangState> {
   LangBloc() : super(LangInitial()) {
-    print("initState");
     on<LangEvent>((event, emit) {
       $storage.setString(StorageKeys.locale.key, event.locale);
       emit(LangInitial(locale: event.locale));
     });
   }
-
-  @override
-  Future<void> close() {
-    print("dispose");
-    return super.close();
-  }
-
 
   String get currentLocale => state.locale;
 }
