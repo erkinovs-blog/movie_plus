@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_plus_app/src/ui/pages/login/login_page.dart';
-import 'package:movie_plus_app/src/ui/pages/sign_up/sign_up_page.dart';
+import 'package:movie_plus_app/src/ui/pages/auth/login/login_page.dart';
+import 'package:movie_plus_app/src/ui/pages/auth/sign_up/sign_up_page.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/splash_lang_selector.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/splash_page.dart';
 
