@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:movie_plus_app/src/ui/utils/functions.dart';
+import 'package:movie_plus_app/src/ui/controllers/translate/translate.dart';
 
 abstract class TextFieldValidator {
   static String? validatePassword(BuildContext context, String? value) {

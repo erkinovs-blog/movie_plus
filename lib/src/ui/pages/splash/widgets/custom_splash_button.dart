@@ -10,7 +10,8 @@ class CustomElevatedButton extends StatelessWidget {
   });
 
   final VoidCallback onPressed;
-  final String text;
+  final Widget text;
+
   final bool isOutlined;
 
   @override
@@ -24,20 +25,14 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: isOutlined ? AppColors.scaffoldBG : AppColors.red,
         surfaceTintColor: AppColors.transparent,
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-            side: BorderSide(
-              color: AppColors.red,
-              width: 3,
-            )),
-      ),
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: AppColors.white,
-          fontWeight: FontWeight.w600,
-          fontSize: 18,
+          borderRadius: BorderRadius.zero,
+          side: BorderSide(
+            color: AppColors.red,
+            width: 3,
+          ),
         ),
       ),
+      child: text,
     );
   }
 }

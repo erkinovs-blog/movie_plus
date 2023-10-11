@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_plus_app/src/common/constants/app_images.dart';
-import 'package:movie_plus_app/src/ui/utils/functions.dart';
+import 'package:movie_plus_app/src/ui/controllers/translate/translate.dart';
 
 class SplashEntry {
   static Map<String, String> entries(BuildContext context) => {

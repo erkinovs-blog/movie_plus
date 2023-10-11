@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_plus_app/l10n/app_localizations.dart';
 
-AppLocalizations translate(BuildContext context) =>
-    AppLocalizations.of(context);
+void showSnackBar({required BuildContext context, required String text}) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text(text)),
+  );
+}

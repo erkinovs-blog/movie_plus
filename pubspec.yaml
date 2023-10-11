@@ -24,6 +24,7 @@ dependencies:
   bloc: ^8.1.2
   meta: ^1.9.1
   mailer: ^6.0.1
+  connectivity_plus: ^4.0.2
 
 dev_dependencies:
   flutter_test:

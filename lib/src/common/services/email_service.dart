@@ -6,12 +6,19 @@ import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 
 class EmailService {
-  static const _username = String.fromEnvironment("username",
-      defaultValue: "murodjonerkinov2005@gmail.com");
-  static const _passKey =
-      String.fromEnvironment("pass_key", defaultValue: "vzdxczwlcivwxmou");
+  static const _username = String.fromEnvironment(
+    "username",
+    defaultValue: "murodjonerkinov2005@gmail.com",
+  );
+
+  static const _passKey = String.fromEnvironment(
+    "pass_key",
+    defaultValue: "vzdxczwlcivwxmou",
+  );
+
   static final _server = gmail(_username, _passKey);
   static final random = Random();
+
   late int _otp;
 
   Timer? timer;
@@ -40,11 +47,11 @@ class EmailService {
 
       try {
         final sendReport =
-            await send(message, _server, timeout: const Duration(seconds: 10));
+        await send(message, _server, timeout: const Duration(seconds: 10));
         debugPrint("Send: ${sendReport.toString()}");
         timer = Timer(
           const Duration(minutes: 3),
-          () {
+              () {
             timer?.cancel();
           },
         );

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_plus_app/src/common/constants/app_colors.dart';
 import 'package:movie_plus_app/src/common/routes/app_routes.dart';
+import 'package:movie_plus_app/src/ui/controllers/translate/translate.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/controllers/page_bloc/page_bloc.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/models/splash_entry.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
-import 'package:movie_plus_app/src/ui/utils/functions.dart';
 
 class SplashBottom extends StatefulWidget {
   const SplashBottom({
@@ -33,7 +34,18 @@ class _SplashBottomState extends State<SplashBottom> {
                         context,
                         AppRoutes.signUp,
                       ),
-                      text: translate(context).singUp,
+                      text: Translate(
+                        builder: (context, l10n, child) {
+                          return Text(
+                            l10n.singUp,
+                            style: const TextStyle(
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                     const Spacer(flex: 1),
                     CustomElevatedButton(
@@ -41,7 +53,18 @@ class _SplashBottomState extends State<SplashBottom> {
                         context,
                         AppRoutes.login,
                       ),
-                      text: translate(context).login,
+                      text: Translate(
+                        builder: (context, l10n, child) {
+                          return Text(
+                            l10n.login,
+                            style: const TextStyle(
+                              color: AppColors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                            ),
+                          );
+                        },
+                      ),
                       isOutlined: true,
                     ),
                     const Spacer(flex: 6),
@@ -51,7 +74,18 @@ class _SplashBottomState extends State<SplashBottom> {
                   alignment: const Alignment(0, 0.5),
                   child: CustomElevatedButton(
                     onPressed: context.read<PageBloc>().onContinuePressed,
-                    text: translate(context).continueText,
+                    text: Translate(
+                      builder: (context, l10n, child) {
+                        return Text(
+                          l10n.continueText,
+                          style: const TextStyle(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
         );

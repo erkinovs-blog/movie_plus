@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
 import 'package:movie_plus_app/src/common/routes/app_routes.dart';
+import 'package:movie_plus_app/src/ui/controllers/screen_ratio_error/screen_layout_resolver.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/controllers/lang_bloc/lang_bloc.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
-import 'package:movie_plus_app/src/ui/utils/screen_layout_resolver.dart';
 
 class SplashLangSelector extends StatefulWidget {
   const SplashLangSelector({super.key});
@@ -32,7 +32,14 @@ class _SplashLangSelectorState extends State<SplashLangSelector> {
                           padding: const EdgeInsets.only(bottom: 15),
                           child: CustomElevatedButton(
                             onPressed: () => context.read<LangBloc>().add(e.$2),
-                            text: e.$1,
+                            text: Text(
+                              e.$1,
+                              style: const TextStyle(
+                                color: AppColors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                              ),
+                            ),
                             isOutlined: e.$2.locale !=
                                 context.read<LangBloc>().currentLocale,
                           ),

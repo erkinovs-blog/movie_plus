@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_plus_app/src/ui/pages/screen_ratio_error/screen_ratio_error.dart';
+import 'package:movie_plus_app/src/ui/controllers/screen_ratio_error/widgets/screen_ratio_error.dart';
 
 class ScreenLayoutResolver extends StatelessWidget {
   const ScreenLayoutResolver({super.key, required this.child});

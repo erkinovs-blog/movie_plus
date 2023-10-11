@@ -5,8 +5,8 @@ import 'package:movie_plus_app/src/common/constants/app_icons.dart';
 import 'package:movie_plus_app/src/common/routes/app_routes.dart';
 import 'package:movie_plus_app/src/common/services/email_service.dart';
 import 'package:movie_plus_app/src/common/utils/validator/text_field_validator.dart';
+import 'package:movie_plus_app/src/ui/controllers/translate/translate.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
-import 'package:movie_plus_app/src/ui/utils/functions.dart';
 import 'package:movie_plus_app/src/ui/widgets/custom_text_field.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -102,7 +102,18 @@ class _SignUpPageState extends State<SignUpPage> {
 
                     // print(await sender.checkServer());
                   },
-                  text: "Sign up",
+                  text: Translate(
+                    builder: (context, l10n, child) {
+                      return Text(
+                        l10n.singUp,
+                        style: const TextStyle(
+                          color: AppColors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
+                      );
+                    },
+                  ),
                   isOutlined: true,
                 ),
                 Align(
