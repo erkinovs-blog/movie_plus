@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
-class ErrorApp extends StatefulWidget {
-  const ErrorApp({super.key});
+class ErrorApp extends StatelessWidget {
+  const ErrorApp({
+    super.key,
+    required this.error,
+  });
 
-  @override
-  State<ErrorApp> createState() => _ErrorAppState();
-}
+  final Object error;
 
-class _ErrorAppState extends State<ErrorApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Placeholder(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text(error.toString()),
+        ),
+      ),
     );
   }
 }

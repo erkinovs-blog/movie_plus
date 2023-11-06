@@ -1,13 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_plus_app/src/common/constants/app_colors.dart';
 import 'package:movie_plus_app/src/common/constants/app_icons.dart';
 import 'package:movie_plus_app/src/common/routes/app_routes.dart';
-import 'package:movie_plus_app/src/common/services/email_service.dart';
 import 'package:movie_plus_app/src/common/utils/validator/text_field_validator.dart';
 import 'package:movie_plus_app/src/ui/controllers/translate/translate.dart';
+import 'package:movie_plus_app/src/ui/pages/auth/bloc/auth_bloc.dart';
 import 'package:movie_plus_app/src/ui/pages/splash/widgets/custom_splash_button.dart';
 import 'package:movie_plus_app/src/ui/widgets/custom_text_field.dart';
+
+import '../../../utils/functions.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -21,14 +25,12 @@ class _SignUpPageState extends State<SignUpPage> {
   late TextEditingController nicknameController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
-  late EmailService service;
 
   @override
   void initState() {
     nicknameController = TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
-    service = EmailService();
     super.initState();
   }
 
@@ -37,7 +39,6 @@ class _SignUpPageState extends State<SignUpPage> {
     nicknameController.dispose();
     emailController.dispose();
     passwordController.dispose();
-    service.dispose();
     super.dispose();
   }
 
@@ -85,22 +86,19 @@ class _SignUpPageState extends State<SignUpPage> {
                 CustomElevatedButton(
                   onPressed: () async {
                     if (_formKey.currentState?.validate() ?? true) {
-                      await service.sendOTP(toEmail: emailController.text);
-                      if (mounted) {
-                        Navigator.pushNamed(
-                          context,
-                          AppRoutes.splash,
-                        );
+                      try {
+                        await context.read<AuthBloc>().signUp(
+                              name: nicknameController.text,
+                              email: emailController.text,
+                              password: passwordController.text,
+                            );
+                        if(!mounted) return;
+                        Navigator.pushNamed(context, AppRoutes.home);
+                      } on FirebaseAuthException catch (e) {
+                        if(!mounted) return;
+                        showSnackBar(context: context, text: e.message ?? e.code);
                       }
                     }
-
-                    /// "vzdxczwlcivwxmou"
-                    ///
-
-                    // print(await sender.sendOtp(
-                    //     "murodjonerkinov2005@gmail.com", 12332));
-
-                    // print(await sender.checkServer());
                   },
                   text: Translate(
                     builder: (context, l10n, child) {
@@ -116,22 +114,22 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   isOutlined: true,
                 ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      child: Text(
-                        "Forgot password?",
-                        style: TextStyle(
-                          color: AppColors.white70,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                // Align(
+                //   alignment: Alignment.topRight,
+                //   child: GestureDetector(
+                //     onTap: () {},
+                //     child: const Padding(
+                //       padding: EdgeInsets.symmetric(vertical: 12),
+                //       child: Text(
+                //         "Forgot password?",
+                //         style: TextStyle(
+                //           color: AppColors.white70,
+                //           fontWeight: FontWeight.w800,
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 const Spacer(flex: 10),
               ],
             ),

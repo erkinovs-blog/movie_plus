@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "304638735634",
+    "firebase_url": "https://movie-plus-192b9-default-rtdb.firebaseio.com",
+    "project_id": "movie-plus-192b9",
+    "storage_bucket": "movie-plus-192b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304638735634:android:abab5e4441d0c24615afcb",
+        "android_client_info": {
+          "package_name": "dev.erkinov.movie_plus_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR28FnUEG_xv3H9bpSApIO5KmDZJlXV0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

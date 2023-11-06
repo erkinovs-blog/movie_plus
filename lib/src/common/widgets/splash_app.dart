@@ -5,7 +5,12 @@ import 'package:movie_plus_app/src/common/constants/app_icons.dart';
 import 'package:movie_plus_app/src/ui/utils/screen_size_resolver.dart';
 
 class SplashApp extends StatefulWidget {
-  const SplashApp({super.key});
+  const SplashApp({
+    super.key,
+    required this.progress,
+  });
+
+  final ValueNotifier<double> progress;
 
   @override
   State<SplashApp> createState() => _SplashAppState();
@@ -20,9 +25,25 @@ class _SplashAppState extends State<SplashApp> {
       home: Scaffold(
         backgroundColor: AppColors.scaffoldBG,
         body: Center(
-          child: SvgPicture.asset(
-            AppIcons.icLogo,
-            width: AppScreen.width(context) * 0.4,
+          child: Column(
+            children: [
+              const Spacer(flex: 2),
+              SvgPicture.asset(
+                AppIcons.icLogo,
+                width: AppScreen.width(context) * 0.4,
+              ),
+              const Spacer(),
+              ValueListenableBuilder(
+                valueListenable: widget.progress,
+                builder: (context, value, _) {
+                  return CircularProgressIndicator(
+                    value: value,
+                    color: AppColors.white,
+                  );
+                },
+              ),
+              const Spacer(),
+            ],
           ),
         ),
       ),

@@ -15,14 +15,7 @@ class ConnectionListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<bloc.ConnectionBloc, bloc.ConnectionState>(
-      listener: (context, state) {
-        if (state is bloc.NotConnected) {
-          showSnackBar(context: context, text: "You are offline");
-        } else {
-          showSnackBar(context: context, text: "Back to online");
-        }
-      },
-      listenWhen: (previous, current) => previous is! bloc.ConnectionInitial,
+      listener: (context, state) => showSnackBar(context: context, text: state.status.text),
       child: child,
     );
   }
